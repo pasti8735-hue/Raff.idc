@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Jual Beli Semua Akun Game | Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: radial-gradient(circle at 10% 20%, #0a0a0a, #000000);
+      font-family: 'Inter', sans-serif;
+      color: #eee;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .wave-container { text-align: center; margin-bottom: 1.5rem; }
+    .wave-line { font-size: 1.2rem; font-weight: 700; display: inline-block; background: linear-gradient(135deg, #1e1e1e, #b8860b, #ffd700, #b8860b); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 0.5rem; }
+    .wave-text span { display: inline-block; animation: wave 1.5s infinite ease-in-out; }
+    @keyframes wave { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+    .site-header { text-align: center; margin-bottom: 0.5rem; }
+    .site-title { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, #222, #d4af37, #f5e56b, #b8860b); background-clip: text; -webkit-background-clip: text; color: transparent; text-shadow: 0 0 8px rgba(212,175,55,0.3); }
+    .gradient-bar { width: 80%; height: 4px; background: linear-gradient(90deg, transparent, #d4af37, #ffd700, #d4af37, transparent); margin: 12px auto 0; border-radius: 4px; }
+    .form-card, .filter-card { background: rgba(20,20,30,0.8); backdrop-filter: blur(8px); border-radius: 2rem; padding: 1.5rem; margin: 2rem 0; border: 1px solid rgba(212,175,55,0.4); }
+    .form-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: #ffd966; border-left: 5px solid #ffd700; padding-left: 1rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #f0e6c5; }
+    input, textarea, select { width: 100%; padding: 12px 16px; background: #1e1e2a; border: 1px solid #3a3a4a; border-radius: 1rem; color: white; font-family: 'Inter', monospace; }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: #ffd700; }
+    .file-preview-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .preview-thumb { position: relative; width: 80px; height: 80px; border-radius: 12px; overflow: hidden; border: 1px solid #ffd966; }
+    .preview-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .preview-thumb .remove-img { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,0.7); color: white; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; text-align: center; cursor: pointer; }
+    button { background: linear-gradient(95deg, #1f1f2b, #2a2a3a); border: 1px solid #d4af37; padding: 10px 24px; border-radius: 40px; font-weight: bold; color: #ffd966; cursor: pointer; transition: 0.2s; }
+    button.primary { background: linear-gradient(95deg, #d4af37, #ffd700); color: #0a0a0a; border: none; font-weight: 800; }
+    button.primary:hover { transform: scale(1.02); box-shadow: 0 0 12px rgba(255,215,0,0.6); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
+    .product-card { background: rgba(15,15,22,0.9); border-radius: 1.8rem; padding: 1.2rem; border: 1px solid rgba(212,175,55,0.5); transition: 0.25s ease; display: flex; flex-direction: column; position: relative; }
+    .product-card:hover { transform: translateY(-5px); border-color: #ffd966; }
+    .product-img { width: 100%; height: 170px; object-fit: cover; border-radius: 1.2rem; background: #2a2a2a; margin-bottom: 1rem; }
+    .multi-badge { position: absolute; top: 135px; right: 20px; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 20px; font-size: 0.7rem; color: #ffd966; }
+    .product-name { font-size: 1.4rem; font-weight: 800; color: #ffdf8c; }
+    .product-desc { font-size: 0.85rem; color: #bbb; margin: 8px 0; }
+    .product-price { font-size: 1.5rem; font-weight: 800; color: #ffd966; margin: 8px 0; }
+    .sold-badge { background: #a52a1a; color: white; font-weight: bold; padding: 4px 12px; border-radius: 30px; font-size: 0.7rem; display: inline-block; width: fit-content; }
+    .card-actions { display: flex; gap: 0.6rem; margin-top: 1rem; flex-wrap: wrap; }
+    .wa-btn { background: #25D366; border: none; color: white; font-size: 0.75rem; padding: 6px 12px; border-radius: 30px; cursor: pointer; }
+    .wa-btn:hover { opacity: 0.9; }
+    .danger { background: #8b3a2a; border-color: #ff8c5a; }
+    .admin-mode-info { background: #2a2a1a; border-radius: 1rem; padding: 0.5rem 1rem; margin-bottom: 1rem; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .filter-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end; }
+    .filter-group .form-group { flex: 1; margin-bottom: 0; }
+    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; z-index: 99; text-decoration: none; }
+    .chat-admin-btn { background: #1e2a3a; border: 1px solid #ffd966; padding: 8px 16px; border-radius: 40px; color: #ffd966; cursor: pointer; }
+    footer { text-align: center; margin-top: 3rem; font-size: 0.75rem; color: #a6884a; }
+    .search-icon { margin-right: 8px; }
+    @media (max-width: 600px) { .site-title { font-size: 1.8rem; } .filter-group { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="wave-container">
+    <div class="wave-line" id="waveLine1">kalau mau beli akun pake jasa admin biar gak kena riper</div>
+    <div class="wave-line" id="waveLine2">dan merugikan diri sendiri</div>
+  </div>
+  <div class="site-header">
+    <h1 class="site-title">🛒 JUAL BELI SEMUA AKUN GAME 🛒</h1>
+    <div class="gradient-bar"></div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap;">
+    <button id="chatAdminBtn" class="chat-admin-btn"><i class="fas fa-user-tie"></i> 🤵 Chat Admin</button>
+  </div>
+
+  <div class="admin-mode-info">
+    <span><i class="fas fa-lock"></i> Mode Admin: </span>
+    <div>
+      <input type="password" id="adminPassword" placeholder="Password admin" style="width: auto; display: inline; padding: 6px 12px;">
+      <button id="enableAdminBtn">Aktifkan</button>
+      <button id="disableAdminBtn" style="display:none;">Nonaktifkan</button>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title"><i class="fas fa-store"></i> Jual Akun Game Kamu</div>
+    <div class="form-group">
+      <label><i class="fas fa-gamepad"></i> Nama Akun / Game</label>
+      <input type="text" id="namaAkun" placeholder="Contoh: MLBB Sultan 500 skin">
+    </div>
+    <div class="form-group">
+      <label><i class="fas fa-align-left"></i> Deskripsi</label>
+      <textarea rows="2" id="deskripsi" placeholder="Rank, level, skin..."></textarea>
+    </div>
+    <div class="form-group">
+      <label><i class="fas fa-images"></i> Upload Gambar (Maksimal 9 gambar)</label>
+      <input type="file" id="gambarUpload" accept="image/*" multiple>
+      <div class="file-preview-grid" id="previewGrid"></div>
+      <small style="color: #aaa;">Pilih hingga 9 gambar. Gambar pertama akan menjadi tampilan utama.</small>
+    </div>
+    <div class="form-group">
+      <label><i class="fas fa-tag"></i> Harga (Rp) — Boleh pakai titik atau koma sekali</label>
+      <input type="text" id="harga" placeholder="500.000 atau 500,000">
+    </div>
+    <div class="form-group">
+      <label><i class="fab fa-whatsapp"></i> Nomor WhatsApp Penjual (opsional, hanya admin yang bisa lihat)</label>
+      <input type="text" id="waPenjual" placeholder="6285xxxxxx">
+    </div>
+    <button class="primary" id="btnPosting"><i class="fas fa-paper-plane"></i> Posting Akun</button>
+  </div>
+
+  <div class="filter-card">
+    <div class="form-title"><i class="fas fa-search"></i> <i class="fas fa-shopping-cart search-icon"></i> Cari Stok 🛒</div>
+    <div class="filter-group">
+      <div class="form-group"><label>Cari nama game</label><input type="text" id="searchInput" placeholder="MLBB, Free Fire..."></div>
+      <div class="form-group"><label>Harga minimal (Rp)</label><input type="number" id="minPrice" placeholder="0"></div>
+      <div class="form-group"><label>Harga maksimal (Rp)</label><input type="number" id="maxPrice" placeholder="999999999"></div>
+      <div class="form-group"><button id="resetFilterBtn" style="background:#333;"><i class="fas fa-undo-alt"></i> Reset</button></div>
+    </div>
+  </div>
+
+  <h2><i class="fas fa-home"></i> Beranda <i class="fas fa-scroll"></i> <i class="fas fa-shopping-cart" style="color:#ffd966;"></i></h2>
+  <div class="products-grid" id="productsGrid"></div>
+  <footer><i class="fas fa-shield-alt"></i> Transaksi aman via jasa admin. Klik logo WA atau 🤵 Chat Admin.</footer>
+</div>
+<a href="https://wa.me/6285811963667?text=Halo%20admin%20JUAL%20BELI%20AKUN%20GAME" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+  let products = [];
+  let adminMode = false;
+  const ADMIN_PASSWORD = "admin123"; // Ganti sesuai keinginan
+
+  let currentImagesBase64 = [];
+
+  function loadProducts() {
+    const stored = localStorage.getItem("marketplaceAkunGame");
+    if(stored) products = JSON.parse(stored);
+    else products = [];
+    renderProducts();
+  }
+  function saveProducts() { localStorage.setItem("marketplaceAkunGame", JSON.stringify(products)); }
+
+  function parsePriceFromInput(str) {
+    let cleaned = str.replace(/[^0-9,.]/g, '');
+    let dotCount = (cleaned.match(/\./g) || []).length;
+    let commaCount = (cleaned.match(/,/g) || []).length;
+    if(dotCount > 1) cleaned = cleaned.replace(/\.(?=.*\.)/g, '');
+    if(commaCount > 1) cleaned = cleaned.replace(/,(?=.*,)/g, '');
+    let numeric = parseInt(cleaned.replace(/[.,]/g, ''), 10);
+    return isNaN(numeric) ? 0 : numeric;
+  }
+  function formatRupiah(angka) { return "Rp " + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+
+  function renderProducts() {
+    let searchTerm = document.getElementById("searchInput")?.value.toLowerCase() || "";
+    let min = parseInt(document.getElementById("minPrice")?.value) || 0;
+    let max = parseInt(document.getElementById("maxPrice")?.value) || Infinity;
+    let filtered = products.filter(p => p.namaAkun.toLowerCase().includes(searchTerm) && p.harga >= min && p.harga <= max);
+    const grid = document.getElementById("productsGrid");
+    if(!grid) return;
+    if(filtered.length === 0) {
+      grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem;">✨ Tidak ada akun yang cocok ✨</div>`;
+      return;
+    }
+    grid.innerHTML = "";
+    filtered.forEach((product) => {
+      const originalIdx = products.findIndex(p => p.id === product.id);
+      let firstImage = (product.gambarArray && product.gambarArray.length > 0) ? product.gambarArray[0] : (product.gambar || 'https://placehold.co/300x200?text=No+Image');
+      let imageCount = product.gambarArray ? product.gambarArray.length : (product.gambar ? 1 : 0);
+      let multiBadge = imageCount > 1 ? `<div class="multi-badge"><i class="fas fa-images"></i> +${imageCount-1}</div>` : '';
+      let soldBadge = product.sold ? `<div class="sold-badge"><i class="fas fa-check-circle"></i> SOLD</div>` : "";
+      let priceDisplay = product.sold ? "Terjual" : formatRupiah(product.harga);
+      let waPenjualHtml = (adminMode && product.waPenjual && product.waPenjual.trim() !== "") ? `<button class="wa-btn" data-wa="${product.waPenjual}" data-nama="${product.namaAkun}" data-harga="${product.harga}" data-action="chatPenjual"><i class="fab fa-whatsapp"></i> Chat Penjual</button>` : "";
+      let shareLinkHtml = `<button class="wa-btn" data-idx="${originalIdx}" data-action="shareAdmin" style="background:#b8860b;"><i class="fas fa-share-alt"></i> Share ke Admin</button>`;
+      let card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        ${soldBadge}
+        <div style="position:relative;">
+          <img class="product-img" src="${firstImage}" alt="gambar utama" onerror="this.src='https://placehold.co/300x200?text=Error+Image'">
+          ${multiBadge}
+        </div>
+        <div class="product-name">${escapeHtml(product.namaAkun)}</div>
+        <div class="product-desc">${escapeHtml(product.deskripsi)}</div>
+        <div class="product-price" style="${product.sold ? 'text-decoration:line-through; color:#a77' : ''}">${priceDisplay}</div>
+        <div class="card-actions">
+          ${!product.sold ? `<button class="wa-btn" data-idx="${originalIdx}" data-action="beliAdmin"><i class="fab fa-whatsapp"></i> Beli via Admin</button>` : ''}
+          ${!product.sold ? `<button class="danger" data-idx="${originalIdx}" data-action="sold"><i class="fas fa-tag"></i> Tandai Sold</button>` : ''}
+          ${waPenjualHtml}
+          ${shareLinkHtml}
+          <button class="danger" data-idx="${originalIdx}" data-action="delete"><i class="fas fa-trash-alt"></i> Hapus</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    attachCardEvents();
+  }
+
+  function attachCardEvents() {
+    document.querySelectorAll(".card-actions button").forEach(btn => {
+      btn.removeEventListener("click", handleCardClick);
+      btn.addEventListener("click", handleCardClick);
+    });
+  }
+  function handleCardClick(e) {
+    e.stopPropagation();
+    const idx = this.getAttribute("data-idx");
+    const action = this.getAttribute("data-action");
+    if(action === "sold") markAsSold(parseInt(idx));
+    else if(action === "delete") deleteProduct(parseInt(idx));
+    else if(action === "beliAdmin") chatAdminWithProduct(parseInt(idx));
+    else if(action === "chatPenjual") {
+      const wa = this.getAttribute("data-wa");
+      const nama = this.getAttribute("data-nama");
+      const harga = this.getAttribute("data-harga");
+      chatPenjual(wa, nama, harga);
+    }
+    else if(action === "shareAdmin") shareToAdmin(parseInt(idx));
+  }
+  function markAsSold(idx) { if(products[idx] && !products[idx].sold) { products[idx].sold = true; saveProducts(); renderProducts(); alert("✅ Akun ditandai SOLD."); } }
+  function deleteProduct(idx) { if(confirm("Hapus akun ini?")) { products.splice(idx,1); saveProducts(); renderProducts(); } }
+  function chatAdminWithProduct(idx) { let p=products[idx]; if(!p) return; let msg = `Halo admin, saya tertarik dengan akun berikut:%0A%0A🎮 *${escapeHtml(p.namaAkun)}*%0A📝 ${escapeHtml(p.deskripsi)}%0A💰 ${formatRupiah(p.harga)}%0A🖼 (lihat gambar di web)%0A%0AMohon bantuan transaksi.`; window.open(`https://wa.me/6285811963667?text=${msg}`,"_blank"); }
+  function chatPenjual(wa,nama,harga) { if(!wa) return; let msg = `Halo, saya tertarik dengan akun ${escapeHtml(nama)} dengan harga ${formatRupiah(parseInt(harga))}. Apakah masih tersedia?`; window.open(`https://wa.me/${wa}?text=${msg}`,"_blank"); }
+  function shareToAdmin(idx) {
+    let p = products[idx];
+    if(!p) return;
+    // Ambil gambar pertama untuk dikirim ke WA
+    let firstImage = (p.gambarArray && p.gambarArray.length > 0) ? p.gambarArray[0] : '';
+    let link = window.location.href + `#produk-${p.id}`;
+    let msg = `*SHARE PRODUK DARI MARKETPLACE*%0A%0ANama: ${escapeHtml(p.namaAkun)}%0ADeskripsi: ${escapeHtml(p.deskripsi)}%0AHarga: ${formatRupiah(p.harga)}%0ALink produk: ${link}%0A%0A`;
+    if(firstImage) msg += `Gambar: ${firstImage}%0A%0A`;
+    msg += `Admin bisa langsung cek.`;
+    window.open(`https://wa.me/6285811963667?text=${msg}`, "_blank");
+  }
+  function escapeHtml(str) { if(!str) return ""; return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+
+  // Multi gambar preview
+  const fileInput = document.getElementById("gambarUpload");
+  const previewGrid = document.getElementById("previewGrid");
+  fileInput.addEventListener("change", function(e) {
+    const files = Array.from(e.target.files);
+    if(files.length > 9) { alert("Maksimal 9 gambar!"); fileInput.value = ""; return; }
+    currentImagesBase64 = [];
+    previewGrid.innerHTML = "";
+    let processed = 0;
+    files.forEach((file) => {
+      if(!file.type.startsWith("image/")) return;
+      if(file.size > 2*1024*1024) { alert(`Gambar ${file.name} terlalu besar (max 2MB)`); return; }
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        currentImagesBase64.push(ev.target.result);
+        const div = document.createElement("div");
+        div.className = "preview-thumb";
+        div.innerHTML = `<img src="${ev.target.result}"><span class="remove-img" data-index="${currentImagesBase64.length-1}">✖</span>`;
+        previewGrid.appendChild(div);
+        processed++;
+        if(processed === files.length) attachRemoveEvents();
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+  function attachRemoveEvents() {
+    document.querySelectorAll(".remove-img").forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const idx = parseInt(el.getAttribute("data-index"));
+        currentImagesBase64.splice(idx, 1);
+        renderPreviewGrid();
+      });
+    });
+  }
+  function renderPreviewGrid() {
+    previewGrid.innerHTML = "";
+    currentImagesBase64.forEach((img, i) => {
+      const div = document.createElement("div");
+      div.className = "preview-thumb";
+      div.innerHTML = `<img src="${img}"><span class="remove-img" data-index="${i}">✖</span>`;
+      previewGrid.appendChild(div);
+    });
+    attachRemoveEvents();
+  }
+
+  document.getElementById("btnPosting").addEventListener("click", () => {
+    const namaAkun = document.getElementById("namaAkun").value.trim();
+    const deskripsi = document.getElementById("deskripsi").value.trim();
+    const hargaInput = document.getElementById("harga").value;
+    const waPenjual = document.getElementById("waPenjual").value.trim();
+    if(!namaAkun) { alert("Nama akun harus diisi!"); return; }
+    let harga = parsePriceFromInput(hargaInput);
+    if(harga === 0 && hargaInput !== "0") { alert("Harga tidak valid. Gunakan angka, boleh titik/koma."); return; }
+    if(currentImagesBase64.length === 0 && !confirm("Anda belum upload gambar. Lanjutkan tanpa gambar?")) return;
+    const newProduct = {
+      id: Date.now(),
+      namaAkun,
+      deskripsi: deskripsi || "-",
+      harga: harga,
+      gambarArray: [...currentImagesBase64],
+      sold: false,
+      waPenjual: waPenjual || "",
+      createdAt: new Date().toISOString()
+    };
+    products.unshift(newProduct);
+    saveProducts();
+    renderProducts();
+    // reset form
+    document.getElementById("namaAkun").value = "";
+    document.getElementById("deskripsi").value = "";
+    document.getElementById("harga").value = "";
+    document.getElementById("waPenjual").value = "";
+    fileInput.value = "";
+    currentImagesBase64 = [];
+    previewGrid.innerHTML = "";
+    alert("✅ Akun berhasil diposting dengan " + newProduct.gambarArray.length + " gambar!");
+  });
+
+  // Admin mode
+  document.getElementById("enableAdminBtn").addEventListener("click", () => {
+    if(document.getElementById("adminPassword").value === ADMIN_PASSWORD) {
+      adminMode = true;
+      document.getElementById("enableAdminBtn").style.display = "none";
+      document.getElementById("disableAdminBtn").style.display = "inline-block";
+      renderProducts();
+      alert("Mode Admin aktif.");
+    } else alert("Password salah!");
+  });
+  document.getElementById("
